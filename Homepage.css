@@ -1,0 +1,116 @@
+:root {
+    --text_main: rgb(63, 63, 62);
+    --text_dark: #05386B;
+    --bg_main: #f0f0f0;
+    --text_main: rgb(63, 63, 62);
+    --text_green: #49d086;
+    --text_light: #EDF5E1;
+    --text_dark: #05386B;
+    --bg_accent_light: #8EE4AF;
+    --text_dark_low_opacity: rgba(5, 56, 107, 0.5);
+    --bg_purple: rgb(84, 78, 213);
+}
+
+.structure {
+    font-stretch: semi-expanded;
+    font-family: "Roboto";
+    font-weight: 100;
+    color: var(--text_main);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 3rem;
+    margin: 2rem;
+}
+
+.backgroundPicture {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: none;
+}
+
+.fridge {
+    margin-top: 1rem;
+    z-index: 1;
+    height:400px;
+    width:250px;
+}
+.shadow {
+    z-index: 0;
+    margin-top: -1.1rem;
+    margin-left: 30px;
+    height:60px;
+    width:200px;
+    background-color: var(--text_main);
+    transform: perspective(1em) rotateX(30deg) scale(1, 0.35);
+    filter: blur(1em);
+    opacity: 0.7;
+}
+h2.title {
+    font-weight: 500;
+    font-size: 1.5rem;
+    width: 100%;
+    letter-spacing: 0.4px;
+}
+h3{
+    margin: 0.2em;
+    margin-left: 0;
+    letter-spacing: -0.1px;
+    color: var(--text_dark);
+    font-weight: 600;
+    text-decoration: none;
+    width: 100%;
+}
+
+#emphasize {
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    color: var(--text_green);
+    font-family: "Roboto Slab";
+}
+
+.introText{
+    padding: 1rem;
+    background-color: var(--bg_main);
+}
+
+.button {
+    font-family: "Roboto Slab";
+    padding: 0.45em 1em;
+    margin: 1rem;
+    text-decoration: none;
+    background-color: var(--bg_purple);
+    color: var(--text_light);
+    font-weight: 400;
+    letter-spacing: 1px;
+    border-radius: 0.8em;
+    border-style: solid;
+    border-color: var(--text_dark);
+    border-width: 3px;
+    transition: 0.3s;
+}
+
+.button:hover{
+    background: var(--text_green);
+}
+
+.normalLink {
+    font-family: "Roboto";
+    text-decoration: underline;
+    margin: 1rem;
+    padding: 0.5rem;
+    font-size: 0.85em;
+    color: var(--text_dark);   
+}
+
+.normalLink:hover{
+    color: var(--text_green);
+}
+
+.introLinks {
+    display: flex; 
+    justify-content: left; 
+    align-items: center;
+    flex-wrap: wrap;
+}
+

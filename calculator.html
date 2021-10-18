@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="calculatorBackend.js"></script>
+    <title>Calculator Backend Test</title>
+</head>
+<body>
+    <!-- <p id="message"></p>
+    <input> -->
+</body>
+<script>
+    var names = ["Jacob","Eddy","Zamie","Anesu"];
+    var initials = ["j","e","z","a"];
+    var totals = [];
+    
+    var finishList = false;
+    var moveOn = false;
+
+    //names = getNames();
+    //initials = getInitials(names);
+    totals = initializeTotals(names);
+    document.write(names + "<br>");
+    document.write(initials + "<br>");
+    document.write(totals + "<br>");
+
+    var items = [];
+    var prices = [];
+    var sharedBy = [];
+    
+    getItems();
+    calculateTotals();
+    document.write(totals + "<br>");
+    displayTotals();
+</script>
+</html>
+
+
