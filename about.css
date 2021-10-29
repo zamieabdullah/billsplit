@@ -1,0 +1,100 @@
+.toppic{
+  width: 50%;
+  padding: 25px;
+  margin: auto;
+  text-align: center;
+  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  color: #FFFFFE;
+}
+
+
+.topimage{
+  background-image:url(groceryfin.jpg);
+  background-position: center;
+  width: 100%;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.message{
+  width: 50%;
+  padding: 10px;
+  border: 2px solid #f9f9f9;
+  margin: auto;
+  text-align: center;
+  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+
+.founders{
+  width: 100%;
+  padding:10px;
+  border: 1px solid black;
+  margin: auto;
+  background-color: rgb(225,235,220);
+  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+
+.descriptions{
+  width: 50%;
+  font-size: 15px;
+  float:left;
+}
+
+.flex-container1, .flex-container2{
+  display: flex;
+  margin: auto
+}
+
+.box1, .box3{
+  height: 180px;
+  width: 240px;
+  padding: 20px;
+  background-color: #60C8E1;
+  border-radius: 25px;
+  border: 3px solid #60C8E1;
+  margin: 15px;
+
+  
+}
+
+.box2, .box4{
+  height: 180px;
+  width: 240px;
+  padding: 20px;
+  background-color: #F26BEF;
+  border-radius: 25px;
+  border: 3px solid #F26BEF;
+  margin: 15px;
+
+}
+
+.box3{
+  background-color: #A7FA70;
+  border: 3px solid #A7FA70;
+}
+
+.box4{
+  background-color: #FFFD89;
+  border: 3px solid #FFFD89;
+}
+
+p{
+  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 20px;
+}
+
+.details {
+  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 15px;
+}
+
+.founderpic img{
+  width: 45%;
+  float:right;
+}
+
+@media only screen and (max-width: 600px) {
+  .flex-container1, .flex-container2{
+    flex-direction: column;
+  }
+}
