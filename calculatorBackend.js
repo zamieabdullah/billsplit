@@ -12,6 +12,7 @@ var sharedBy = [];
 
 var tax = 1.0625;
 var totals = [];
+var payer = -1;
 
 function enterName(event) {
     var x = event.keyCode;
@@ -28,6 +29,7 @@ function enterInitial(event) {
 }
 
 function getName(){
+    hideWelcome();
     let input = document.getElementById("inBar");
     if (input.value.toLowerCase() == "quit" || input.value.toLowerCase() == "done"){
         input.value = "";
@@ -96,8 +98,8 @@ function setFinalNames(){
     for (let i = 0; i < finalNames.length; i++) {
         finalNames[i].ondblclick = "none";
         finalInits[i].ondblclick = "none";
-        finalNames[i].ondtouchend = "none";
-        finalInits[i].ondtouchend = "none";
+        finalNames[i].ontouchend = "none";
+        finalInits[i].ontouchend = "none";
     }
 }
 
@@ -109,9 +111,11 @@ function setFinalReceipt(){
         finalItems[i].ondblclick = "none";
         finalPrices[i].ondblclick = "none";
         finalSharedBy[i].ondblclick = "none";
-        finalItems[i].ondtouchend = "none";
-        finalPrices[i].ondtouchend = "none";
-        finalSharedBy[i].ondtouchend = "none";
+        finalItems[i].ontouchend = "none";
+        finalPrices[i].ontouchend = "none";
+        finalSharedBy[i].ontouchend = "none";
+        document.getElementById("minusTax").onmousedown = "none"
+        document.getElementById("plusTax").onmousedown = "none"
     }
 }
 
@@ -239,9 +243,9 @@ function displayName(value, where){
     const nameDiv = document.createElement("div");
     nameDiv.className = "names";
     let currColor;
-    currColor = nameColors[ names.length % nameColors.length ];
+    currColor = nameColors[(names.length % nameColors.length)];
     if (where != "header"){
-        currColor = nameColors[(names.indexOf(value) % nameColors.length )+ 1];
+        currColor = nameColors[(names.indexOf(value)+1) % nameColors.length ];
     }
     nameDiv.style.backgroundColor = currColor;
     const tnode = document.createTextNode(value);
@@ -252,6 +256,12 @@ function displayName(value, where){
         where = "namesHRow";
         nameDiv.ondblclick = function() {editItem(location)};
         nameDiv.ontouchend = function() {editOnDoubleTap(location);}
+    }
+    if (where == "totals"){
+        let location = "totalsName" + (names.indexOf(value)+1);
+        nameDiv.id = location;
+        where = "totals" + (names.indexOf(value)+1);
+        nameDiv.onclick = function() {updatePayer(location)};
     }
     const element = document.getElementById(where)
     element.appendChild(nameDiv);
@@ -274,7 +284,9 @@ function editItem(id){
         var innerData = toEdit.innerHTML;
         toEdit.innerHTML = "";
         var x = document.createElement("input");
-        x.style.width = "90%"
+        if (classFromId(id) == "initials" || classFromId(id) == "prices"){
+            x.style.width = "2em";
+        }
         toEdit.appendChild(x);
         x.value = innerData;
         x.select();
@@ -297,6 +309,10 @@ function editItem(id){
             editData(id, newData);
             x.remove();
             toEdit.innerHTML = newData;
+            if (classFromId(id)=="initials" && initials.length == names.length){
+                updateMessage("Enter next person");
+                document.getElementById("finishButton").disabled = false;
+            }
         }
 }
 
@@ -412,7 +428,7 @@ function displayInitial(initial){
     const nameDiv = document.createElement("div");
     nameDiv.id = location;
     nameDiv.className = "initials";
-    nameDiv.style.backgroundColor = nameColors[ initials.length % nameColors.length ];
+    nameDiv.style.backgroundColor = nameColors[ (initials.length % nameColors.length )];
     const tnode = document.createTextNode(initial);
     nameDiv.appendChild(tnode);
     nameDiv.ondblclick = function() {editItem(location)};
@@ -510,11 +526,17 @@ function displaySharedBy(initList) {
 
 function finishCalculator(){
     setFinalReceipt();
-    document.write("items: " + items + "<br>");
-    document.write("prices: " + prices + "<br>");
-    document.write("sharedby: " + sharedBy + "<br>");
-    document.write("names: " + names + "<br>");
-    document.write("initials: " + initials + "<br>");
+    // document.write("items: " + items + "<br>");
+    // document.write("prices: " + prices + "<br>");
+    // document.write("sharedby: " + sharedBy + "<br>");
+    // document.write("names: " + names + "<br>");
+    // document.write("initials: " + initials + "<br>");
+    document.getElementById("typeBar").style.display = "none";
+    document.getElementById("fButtonBox").style.display = "none";
+    document.getElementById("plusTax").style.visibility = "hidden";
+    document.getElementById("minusTax").style.visibility = "hidden";
+    updateMessage("Click on whoever is paying");
+    document.getElementsByClassName("inReg")[0].style.margin = "0.5em";
     calculateTotals();
     displayTotals();
 }
@@ -546,7 +568,54 @@ function initializeTotals(){
 
 function displayTotals(){
     for (let i = 0; i < names.length; i++) {
-        document.write(names[i] + " owes: " + totals[i] + "<br>");
+        let newDiv = document.createElement("div");
+        newDiv.id = "totals"+(i+1);
+        newDiv.className = "totals";
+        var tnode = document.createTextNode(" owes: $");
+        document.getElementById("totalsRow").appendChild(newDiv);
+        displayName(names[i],"totals");
+        let owes = document.createElement("div");
+        owes.appendChild(tnode);
+        owes.className = "owes";
+        newDiv.appendChild(owes);
+    }
+    updateTotals();
+}
+
+function updatePayer(id){
+    document.getElementById("inputReg").style.display = "none";
+    if (payer != -1){
+        let y = document.getElementsByClassName("payer");
+        y[0].className = "names";
+    }
+    let i = id.replace(/\D/g,"");
+    i = parseInt(i);
+    if (payer == i-1){
+        payer = -1;
+    } else {
+        payer = i - 1;
+    }
+    console.log("payer is " + payer);
+    updateTotals();
+}
+
+function updateTotals() {
+    if (payer > -1){
+        var p = document.getElementById("totalsName"+(payer+1));
+        p.className += " payer";
+    }
+    
+    var newTotals = [];
+    let x = document.getElementsByClassName("owes")
+    for (let i = 0; i < totals.length; i++) { 
+        if (i == payer){
+            newTotals[payer] = (parseFloat(sum(totals)) - parseFloat(totals[payer])) * tax;
+            x[payer].innerHTML = " is owed: $" + newTotals[i].toFixed(2);
+        }
+        else {
+            newTotals[i] = totals[i] * tax;
+            x[i].innerHTML = " owes: $" + newTotals[i].toFixed(2);
+        }
     }
 }
 
@@ -649,6 +718,7 @@ function startCount(sym) {
     }
     disableContextMenu(id);
     document.getElementById(id).onmouseup = stopCount;
+    document.getElementById(id).onmouseout = stopCount;
     
     if (!timer_is_on) {
         changeTax(sym)
@@ -665,4 +735,9 @@ function startCount(sym) {
         clearTimeout(w);
         timer_is_on = 0;
     }
+}
+
+function hideWelcome() {
+        document.getElementById("welcomeSub").style.display = "none";
+        document.getElementById("welcome").style.display = "none";
 }

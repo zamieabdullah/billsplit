@@ -12,6 +12,12 @@
     font-family: "Roboto";
 }
 
+input {
+    font-size: 18px;
+    font-family: "roboto";
+    width: 7em;
+}
+
 #fullReceipt{
     font-size: 22px;
     display: none;
@@ -36,12 +42,28 @@
     font-size: 22px;
     background-color: var(--bg_main);
     margin: 1em;
-    min-height: 80vh;
+    min-height: 90vh;
     box-shadow: 0px 0px 3px 3px rgba(5, 56, 107, 0.1);
     border-radius: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#welcome {
+    opacity: 0.7;
+    text-align: center;
+    transition: 0.3s;
+}
+
+#welcomeSub {
+    width: 80%;
+    font-size: 20px;
+    padding: 2em;
+    padding-top: 1em;
+    opacity: 0.6;
+    letter-spacing: 0.02em;
+    text-align: center;
 }
 
 .namesInfo {
@@ -156,6 +178,7 @@
 .namesHRow .names {
     font-size: 22px;
     font-size: 1.1em;
+    opacity: 0.8;
 }
 
 
@@ -180,7 +203,6 @@
     opacity: 0.6;
     font-size: 1em;
     text-align: center;
-    font-weight: light;
     margin-left: -2em;
 }   
 
@@ -193,7 +215,7 @@
     margin-left: auto;
 }
 
-.inputReg {
+#inputReg {
     font-size: 22px;
     display: flex;
     flex-direction: row;
@@ -207,13 +229,15 @@
 }
 
 #finishButton {
+    opacity: 0.85;
     font-size: 22px;
     font-family: "Roboto Slab";
     font-size: 0.8em;
     height: fit-content;
     padding: 0.2em 1.2em;
     text-decoration: none;
-    background-color: rgb(88, 88, 249);
+    background-color: rgb(39, 39, 172);
+    background-color: var(--text_dark);
     color: var(--text_light);
     font-weight: 400;
     letter-spacing: 1px;
@@ -225,12 +249,13 @@
 }
 
 #finishButton:hover {
-    background-color: var(--bg_accent);
+    background-color: rgb(88, 88, 249);
 }
 
 #finishButton:disabled {
-    opacity:0.54;
-    background-color: rgb(88, 88, 249);
+    opacity:0.4;
+    background-color: var(--text_dark);
+    color: var(--text_light);
 }
 
 #fButtonBox {
@@ -259,12 +284,13 @@
     border-radius: 10em;
     transition: 0.2s;
 }
+
 #submitInput:disabled {
     opacity: 0.54;
 }
 
 #submitInput:enabled {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 #submitInput:hover:enabled {
@@ -272,13 +298,15 @@
 }
 
 #submitInput:hover:enabled .material-icons.md-24 {
-    font-size: 1.35em;
+    /* font-size: 1.35em; */
+    transform: scale(1.1);
 }
 
 .material-icons.md-24 { 
     font-size: 22px;
     font-size: 1.3em;
-    color: rgb(58, 58, 255);
+    color: rgb(25, 71, 255);
+    transition: 0.2s;
 }
 
 .totalBar {
@@ -292,9 +320,11 @@
     flex-direction: row;
     vertical-align: center;
 }
+
 #totalVal {
     margin: 0;
 }
+
 #plusTax, #minusTax {
     font-size: 18px;
     width: 1.3em;
@@ -307,18 +337,56 @@
     transition: 0.1s;
     
 }
+
 #plusTax:hover, #minusTax:hover {
     opacity: 0.9;
     transform: scaleX(1.1)
 }
+
 #tax {
     margin-left: auto;
     margin-right: 0.5em;
 }
+
 #plusTax {
     margin-left: 0.5em;
     margin-right: 10%;
 }
+
+#totalsRow {
+    font-size: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    justify-content: center;
+}
+
+.totals {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 0.7em;
+}
+
+.totals .names {
+    font-size: 24px;
+    border: none;
+}
+
+.owes {
+    font-size: 20px;
+    color: var(--text_dark);
+    padding-left: 0.2em;
+}
+
+.names.payer {
+    transition: 0.3s;
+    border: 3px solid var(--text_dark);
+    font-size: 22px;
+    transform: scaleX(1.05);
+}
+
 @media screen and (max-width:600px) {
     .subcontainer {
         font-size: 18px;
@@ -328,7 +396,7 @@
         font-size: 18px;
         min-width: 80vw;
     }
-    .inputReg {
+    #inputReg {
         font-size: 18px;
         flex-direction: column;
         justify-content: center;
@@ -379,5 +447,29 @@
     }
     #plusTax, #minusTax{
         font-size: 14px;
+    }
+    input {
+        font-size: 14px;
+        width: 5em;
+    }
+    .totals .names {
+        font-size: 18px;
+    }
+    .owes {
+        font-size: 16px;
+    }
+    .names.payer {
+        font-size: 17px;
+    }
+    #welcome {
+        font-size: 22px;
+    }
+    #welcomeSub {
+        padding: 0.3em;
+        font-size: 16px;
+        width: 100%;
+    }
+    #fullReceipt .names {
+        margin: 0.15em;
     }
 }

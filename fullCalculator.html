@@ -142,8 +142,15 @@
             <div class=namesInfo>
                 <!-- <div class="namesTitle"><strong>Being Shared By</strong></div> -->
                 <span class=namesHeader>
-                    <div id="namesHRow" class="namesHRow"></div>
-                    <div id="initialsRow"></div>
+                    <div id="namesHRow" class="namesHRow">
+                        <h2 id="welcome">Welcome to the Billsplit Receipt Calculator</h2>
+                    </div>
+                    <div id="initialsRow">
+                        <h3 id="welcomeSub">Enter names until everyone is accounted for, then hit finish to move on.
+                            <br/><br/>When prompted, enter the name, prices and initials of those sharing each item on your receipt.
+                            
+                        </h3>
+                    </div>
                 </span>
             </div>
         
@@ -160,21 +167,23 @@
                 <button id="minusTax" onmousedown="minusTax()">-</button>
                 <button id="plusTax" onmousedown="addTax()">+</button>
             </div>
-            <div class="inputReg">
+            <div id="inputReg">
                 <span class="inReg">
                     <div id="inMessage" class="inputMsg">Enter the first person</div>
-                    <span class="typeBar">
+                    <span id="typeBar">
                         <input type="text" id="inBar" size="50" placeholder="Use 'enter' key to submit" onkeydown="enterName(event)" oninput= "updateSubmit()">
                         <button id="submitInput" onclick="getName()">
                             <span class="material-icons md-24">arrow_circle_right</span>
                         </button>
                     </span>
-                    </span>
                 </span>
-                    <span id="fButtonBox">
+                <span id="fButtonBox">
                     <button id="finishButton" onclick="finishNames()">Finish</button>  
-                    </span>
+                </span>
             </div>
+            <span id="totalsRow">
+                
+            </span>
         </div>
         </div>
     
