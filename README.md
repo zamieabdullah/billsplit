@@ -9,3 +9,7 @@
     will you put in the correct menu once you have finished making it.
 - finalize github pages repo
 - upload all to cpanel hosting
+
+
+BUGS
+    -DROPDOWN MENU NOT WORKING FOR ALL SITES
