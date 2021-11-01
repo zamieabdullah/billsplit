@@ -14,140 +14,153 @@
     <title>Home</title>
     
     <link rel="stylesheet" href="Homepage.css">
-     <!-- NAVBAR STYLE -->
-     <style>
-        /* THE NAVBAR OVERLAY */ 
-
-        .overlay {
-            /* Height & width depends on how you want to reveal the overlay (see JS below) */   
-            height: 100%;
-            width: 0;
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            left: 0;
-            top: 0;
-            background-color: rgb(0,0,0); /* Black fallback color */
-            background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
-            overflow-x: hidden; /* Disable horizontal scroll */
-            transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-        }
-        
-        /* Position the content inside the overlay */
-        .overlay-content {
-            position: relative;
-            top: 25%; /* 25% from the top */
-            width: 100%; /* 100% width */
-            text-align: center; /* Centered text/links */
-            margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-        }
-        
-        /* The navigation links inside the overlay */
-        .overlay a {
-            padding: 8px;
-            text-decoration: none;
-            font-size: 36px;
-            color: #818181;
-            display: block; /* Display block instead of inline */
-            transition: 0.3s; /* Transition effects on hover (color) */
-        }
-        
-        /* When you mouse over the navigation links, change their color */
-        .overlay a:hover, .overlay a:focus {
-            color: #5CDB95;
-        }
-        
-        /* Position the close button (top right corner) */
-        .overlay .closebtn {
-            position: absolute;
-            top: 20px;
-            right: 45px;
-            font-size: 60px;
-        }
-        
-        /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-        @media screen and (max-height: 450px) {
-            overlay a {font-size: 20px}
-            .overlay .closebtn {
-                font-size: 40px;
-                top: 15px;
-                right: 35px;
-            }
-        }
-        /*______________________________________________________________________________________________________________________________________*/
-        
+    <style>
+        /* Style for each page */
     </style>
+<!-- NAVBAR STYLE -->
+<style>
+    /* THE NAVBAR OVERLAY */ 
 
-    <!-- NAVBAR OVERLAY SCRIPT -->
-    <script>
-
-        /* Open when someone clicks on the  element */
-        function openNav() {
-        document.getElementById("myNav").style.width = "100%";
-        }
+    .overlay {
+        /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+        height: 100%;
+        width: 0;
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        background-color: rgb(0,0,0); /* Black fallback color */
+        background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+    }
     
-        /* Close when someone clicks on the "x" symbol inside the overlay */
-        function closeNav() {
-            document.getElementById("myNav").style.width = "0%";
+    /* Position the content inside the overlay */
+    .overlay-content {
+        position: relative;
+        top: 25%; /* 25% from the top */
+        width: 100%; /* 100% width */
+        text-align: center; /* Centered text/links */
+        margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+    }
+    
+    /* The navigation links inside the overlay */
+    .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: #818181;
+        display: block; /* Display block instead of inline */
+        transition: 0.3s; /* Transition effects on hover (color) */
+    }
+    
+    /* When you mouse over the navigation links, change their color */
+    .overlay a:hover, .overlay a:focus {
+        color: #e46c2c;
+    }
+    
+    /* Position the close button (top right corner) */
+    .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+    }
+    
+    /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+    @media screen and (max-height: 450px) {
+        overlay a {font-size: 20px}
+        .overlay .closebtn {
+            font-size: 40px;
+            top: 15px;
+            right: 35px;
         }
-    </script>
+    }
+    /*______________________________________________________________________________________________________________________________________*/
+    
+</style>
+
+<!-- NAVBAR OVERLAY SCRIPT -->
+<script>
+
+    /* Open when someone clicks on the  element */
+    function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+    }
+
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+</script>
+
 </head>
 <body>
-    <div id="pageContainer">
-        <!-- Don't need to worry -->
-        <div class="navbar">
-            <div id = "myNav" class = "overlay">
+<div id="pageContainer">
+    <!-- Don't need to worry -->
+    <div class="navbar">
+        <div id = "myNav" class = "overlay">
 
-                <!-- Button to close the overlay navigation -->
-                <a href = "javascript:void(0)" class = "closebtn" onclick = "closeNav()">&times;</a>
-          
-                <!-- Overlay content -->
-                <div class = "overlay-content">
-                  <a href = "index.html">Home</a>
-                  <a href = "howto.html">How To Use</a>
-                  <a href = "aboutUs.html">About Us</a>
-                  <a href = "contactus.html">Contact Us</a>
-                  <a href = "fullCalculator.html">Receipt Calculator</a>
-                  <a href = "feedback.html">User Feedback</a>
-                  <a href = "pro2.html">Pro Page</a>
-                </div>
+            <!-- Button to close the overlay navigation -->
+            <a href = "javascript:void(0)" class = "closebtn" onclick = "closeNav()">&times;</a>
+      
+            <!-- Overlay content -->
+            <div class = "overlay-content">
+              <a href = "index.html">Home</a>
+              <a href = "contact.html">Contact</a>
+              <a href = "#">Services</a>
+              <a href = "songList.xml">SongsList XML</a>
+              <a href = "hotdogs.html">Hot Dog</a>
             </div>
-            <ul class="Logos">
-                <li class="companyName"><a href="#"></a>Billsplit</li>
-                <li class="logo"><a href="#"></a></li>
-                <span id="not_mobile">
-                <li class="navItem"><a href="#">How to use</a></li>
-                <li class="navItem"><a href="#">About</a></li>
-                </span>
-            </ul>
-            <ul class="NavLinks">
-                <span id="not_mobile">
-                <li class="attentionItem"><a href="#">Split a Reciept</a></li>
-                </span>
-                <a class="hamburger navbar-toggler" href="javascript:void(0);" class="icon" onclick="openNav()">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </ul>
         </div>
-        
+        <ul class="Logos">
+            <li class="companyName"><a class="nostyle" href="index.html">Billsplit</a></li></a>
+            <a class="logo" href="index.html"></a>
+            <span id="not_mobile">
+            <li class="navItem"><a href="howto.html">How to use</a></li>
+            <li class="navItem"><a href="aboutUs.html">About</a></li>
+            </span>
+        </ul>
+        <ul class="NavLinks">
+            <span id="not_mobile">
+            <li class="attentionItem"><a href="fullCalculator.html">Split a Reciept</a></li>
+            </span>
+            <a class="hamburger" href="javascript:void(0);" class="icon" onclick="openNav()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </ul>
+    </div>
 
         <!-- All page content here, probably use grid-->
-        <div class="container" style="min-height: 90vh;">
+        <div class="container" style="min-height: 90vh; margin-top: 2em;">
             <div class="structure">
                 <div class="introText">
                 <h2 class="title">The <span id="emphasize"> Fastest </span> Way to Split a Reciept.</h2>
                 <br/>
                 <h3>Sharing made easy with Billsplit.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, molestias!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus a ab, distinctio est mollitia minus molestias ipsa voluptatibus iste. Illo.</p>
+                <p style="max-width: 37ch; font-size: 25px;">Efficient, sophisticated, and fair sharing.</p>
+                <p style="max-width: 35ch; font-size: 25px;"> The optimized receipt splitting experience with Billsplit. Simplify sharing with other
+                    people, and do it fast.</p>
                 <span class="introLinks">
-                <a class="button" href="#SPLITRECIEPT">Get Started</a>
-                <a class="normalLink" href="#ABOUT">Learn More</a>
+                <a class="button" href="fullCalculator.html">Get Started</a>
+                <a class="normalLink" href="aboutUs.html">Learn More</a>
                 </span>
                 </div>
                 <div class="backgroundPicture">
                     <img class="fridge" src="fridge.png" alt="">
                     <div class="shadow"></div>
                 </div>
+            </div>
+            <div id="proAd">
+                
+                <div class="proHead">
+                    <div>Billsplit</div>
+                    <div style="color:#2f64eb">Pro</div>
+                    <div class="proNew">New</div>
+                </div>
+                
+                <div class="proMsg">Groundbreaking Features Coming Soon</div>
+                <a class="button pro" href="pro2.html">Find out more</a>
             </div>
             
         </div>
@@ -156,9 +169,9 @@
         <!-- Don't need to worry abt this either -->
         <div class="footer">
             <ul class="footerItems">
-                <li class="footerItem rightFoot"><a href="#">Contact Us</a></li>
-                <li class="footerItem"><a href="#">About</a></li>
-                <li class="footerItem"><a href="#">Tutorial</a></li>
+                <li class="footerItem rightFoot"><a href="contactus.html">Contact Us</a></li>
+                <li class="footerItem"><a href="aboutUs.html">About</a></li>
+                <li class="footerItem"><a href="howto.html">Tutorial</a></li>
                 <li class="footerNotes">Billsplit 2021. Some Rights Reserved.</li>
             </ul>
         </div>

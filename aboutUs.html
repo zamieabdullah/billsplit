@@ -10,133 +10,60 @@
     <link rel="stylesheet" href="header_footer.css">
     <link rel="stylesheet" href="about.css">
     <script src="dropdownLogic.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>windowSize.addListener(hideMenu)//hides dropdown in desktop mode</script> 
 
     <title>Home</title>
     
     
-    <!-- NAVBAR STYLE -->
     <style>
-      /* THE NAVBAR OVERLAY */ 
-
-      .overlay {
-          /* Height & width depends on how you want to reveal the overlay (see JS below) */   
-          height: 100%;
-          width: 0;
-          position: fixed; /* Stay in place */
-          z-index: 1; /* Sit on top */
-          left: 0;
-          top: 0;
-          background-color: rgb(0,0,0); /* Black fallback color */
-          background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
-          overflow-x: hidden; /* Disable horizontal scroll */
-          transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-      }
-      
-      /* Position the content inside the overlay */
-      .overlay-content {
-          position: relative;
-          top: 25%; /* 25% from the top */
-          width: 100%; /* 100% width */
-          text-align: center; /* Centered text/links */
-          margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-      }
-      
-      /* The navigation links inside the overlay */
-      .overlay a {
-          padding: 8px;
-          text-decoration: none;
-          font-size: 36px;
-          color: #818181;
-          display: block; /* Display block instead of inline */
-          transition: 0.3s; /* Transition effects on hover (color) */
-      }
-      
-      /* When you mouse over the navigation links, change their color */
-      .overlay a:hover, .overlay a:focus {
-          color: #5CDB95;
-      }
-      
-      /* Position the close button (top right corner) */
-      .overlay .closebtn {
-          position: absolute;
-          top: 20px;
-          right: 45px;
-          font-size: 60px;
-      }
-      
-      /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-      @media screen and (max-height: 450px) {
-          overlay a {font-size: 20px}
-          .overlay .closebtn {
-              font-size: 40px;
-              top: 15px;
-              right: 35px;
-          }
-      }
-      /*______________________________________________________________________________________________________________________________________*/
-      
+        /* Style for each page */
     </style>
-
-    <!-- NAVBAR OVERLAY SCRIPT -->
-   <script>
-
-      /* Open when someone clicks on the  element */
-      function openNav() {
-      document.getElementById("myNav").style.width = "100%";
-      }
-  
-      /* Close when someone clicks on the "x" symbol inside the overlay */
-      function closeNav() {
-          document.getElementById("myNav").style.width = "0%";
-      }
-  </script>
-  
 </head>
 <body>
+  
+  <script language="javascript">
+    $(document).ready(function(){
+      $("div.hidden").fadeIn(3000).removeClass('hidden');;
+    })
+  </script>
+  
     <div id="pageContainer">
         <!-- Don't need to worry -->
         <div class="navbar">
-          <div id = "myNav" class = "overlay">
-
-              <!-- Button to close the overlay navigation -->
-              <a href = "javascript:void(0)" class = "closebtn" onclick = "closeNav()">&times;</a>
-        
-              <!-- Overlay content -->
-              <div class = "overlay-content">
-                <a href = "index.html">Home</a>
-                <a href = "howto.html">How To Use</a>
-                <a href = "aboutUs.html">About Us</a>
-                <a href = "contactus.html">Contact Us</a>
-                <a href = "fullCalculator.html">Receipt Calculator</a>
-                <a href = "feedback.html">User Feedback</a>
-                <a href = "pro2.html">Pro Page</a>
-              </div>
-          </div>
           <ul class="Logos">
-              <li class="companyName"><a href="#"></a>Billsplit</li>
-              <li class="logo"><a href="#"></a></li>
-              <span id="not_mobile">
-              <li class="navItem"><a href="#">How to use</a></li>
-              <li class="navItem"><a href="#">About</a></li>
-              </span>
+            <li class="companyName"><a class="nostyle" href="index.html">Billsplit</a></li></a>
+            <a class="logo" href="index.html"></a>
+            <span id="not_mobile">
+            <li class="navItem"><a href="howto.html">How to use</a></li>
+            <li class="navItem"><a href="aboutUs.html">About</a></li>
+            </span>
           </ul>
           <ul class="NavLinks">
               <span id="not_mobile">
-              <li class="attentionItem"><a href="#">Split a Reciept</a></li>
+              <li class="attentionItem"><a href="fullCalculator.html">Split a Reciept</a></li>
               </span>
-              <a class="hamburger navbar-toggler" href="javascript:void(0);" class="icon" onclick="openNav()">
+              <a class="hamburger" href="javascript:void(0);" class="icon" onclick="openMenu()">
                   <i class="fa fa-bars"></i>
               </a>
           </ul>
-      </div>
-        
+        </div>
+        <div class="dropdown">  
+            <span id= "mobile">
+            <ul>
+                <li class="dropdownItem"><a href="#">About</a></li>
+                <li class="dropdownItem"><a href="#">How To Use</a></li>
+                <li class="dropdownAttentionItem"><a href="#">Split A Reciept</a></li>
+            </ul>
+            </span>
+        </div>
 
 <div class = "topimage">
 <div class = "toppic">
   <br><br>
   <b>Our mission is making the grocery bill split for off-campus students more convenient.</b>
   <br><br><br>
+  
 </div>
 </div>
     
@@ -145,7 +72,10 @@
       At Billsplit, our goal is to help college students. We strive to uphold our goals every day.
     </div>
     <br>
-  <div class = "flex-container1">
+    
+<div class = "hidden" >
+  <div  id = "boxes">
+  <div class = "flex-container1" id = "containerOne">
       
     <div class = "box1">
       <p>Easy interface</p><br>
@@ -180,6 +110,8 @@
     </div>
     
   </div>
+</div>
+</div>
   <br><br>
   <div class = "message">
     We believe that college students have enough work on their plates. That's why we have made it easy for them to split their grocery bill.
@@ -217,9 +149,9 @@
         <!-- Don't need to worry abt this either -->
         <div class="footer">
             <ul class="footerItems">
-                <li class="footerItem rightFoot"><a href="#">Contact Us</a></li>
-                <li class="footerItem"><a href="#">About</a></li>
-                <li class="footerItem"><a href="#">Tutorial</a></li>
+                <li class="footerItem rightFoot"><a href="contactus.html">Contact Us</a></li>
+                <li class="footerItem"><a href="aboutUs.html">About</a></li>
+                <li class="footerItem"><a href="howto.html">Tutorial</a></li>
                 <li class="footerNotes">Billsplit 2021. Some Rights Reserved.</li>
             </ul>
         </div>

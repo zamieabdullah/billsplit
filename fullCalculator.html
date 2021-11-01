@@ -14,10 +14,14 @@
     <!-- <script src="dropdownLogic.js"></script>
     <script>windowSize.addListener(hideMenu)//hides dropdown in desktop mode</script>  -->
 
-    <title>Populated Calculator</title>
+    <title>Receipt Calculator</title>
+    <style>
+        /* Style for each page */
+    </style>
 
-     <!-- NAVBAR STYLE -->
-     <style>
+
+    <!-- NAVBAR STYLE -->
+    <style>
         /* THE NAVBAR OVERLAY */ 
 
         .overlay {
@@ -55,7 +59,7 @@
         
         /* When you mouse over the navigation links, change their color */
         .overlay a:hover, .overlay a:focus {
-            color: #5CDB95;
+            color: #e46c2c;
         }
         
         /* Position the close button (top right corner) */
@@ -93,9 +97,6 @@
         }
     </script>
 
-
-    
-
 </head>
 <body>
     <div id="pageContainer">
@@ -106,30 +107,29 @@
                 <!-- Button to close the overlay navigation -->
                 <a href = "javascript:void(0)" class = "closebtn" onclick = "closeNav()">&times;</a>
           
+                <!-- ANESU PLEASE FIX HERE -->
                 <!-- Overlay content -->
                 <div class = "overlay-content">
                   <a href = "index.html">Home</a>
-                  <a href = "howto.html">How To Use</a>
-                  <a href = "aboutUs.html">About Us</a>
-                  <a href = "contactus.html">Contact Us</a>
-                  <a href = "fullCalculator.html">Receipt Calculator</a>
-                  <a href = "feedback.html">User Feedback</a>
-                  <a href = "pro2.html">Pro Page</a>
+                  <a href = "contact.html">Contact</a>
+                  <a href = "#">Services</a>
+                  <a href = "songList.xml">SongsList XML</a>
+                  <a href = "hotdogs.html">Hot Dog</a>
                 </div>
             </div>
             <ul class="Logos">
-                <li class="companyName"><a href="#"></a>Billsplit</li>
-                <li class="logo"><a href="#"></a></li>
+                <li class="companyName"><a class="nostyle" href="index.html">Billsplit</a></li></a>
+                <a class="logo" href="index.html"></a>
                 <span id="not_mobile">
-                <li class="navItem"><a href="#">How to use</a></li>
-                <li class="navItem"><a href="#">About</a></li>
+                <li class="navItem"><a href="howto.html">How to use</a></li>
+                <li class="navItem"><a href="aboutUs.html">About</a></li>
                 </span>
             </ul>
             <ul class="NavLinks">
                 <span id="not_mobile">
-                <li class="attentionItem"><a href="#">Split a Reciept</a></li>
+                <li class="attentionItem"><a href="fullCalculator.html">Split a Reciept</a></li>
                 </span>
-                <a class="hamburger navbar-toggler" href="javascript:void(0);" class="icon" onclick="openNav()">
+                <a class="hamburger" href="javascript:void(0);" class="icon" onclick="openMenu()">
                     <i class="fa fa-bars"></i>
                 </a>
             </ul>
@@ -185,16 +185,20 @@
             <span id="totalsRow">
                 
             </span>
+            <div class="feedbackBar">
+                <a class="feedback" href="feedback.html">Provide Feedback?</a>
+            </div> 
         </div>
+        
         </div>
     
 
         <!-- Don't need to worry abt this either -->
         <div class="footer">
             <ul class="footerItems">
-                <li class="footerItem rightFoot"><a href="#">Contact Us</a></li>
-                <li class="footerItem"><a href="#">About</a></li>
-                <li class="footerItem"><a href="#">Tutorial</a></li>
+                <li class="footerItem rightFoot"><a href="contactus.html">Contact Us</a></li>
+                <li class="footerItem"><a href="aboutUs.html">About</a></li>
+                <li class="footerItem"><a href="howto.html">Tutorial</a></li>
                 <li class="footerNotes">Billsplit 2021. Some Rights Reserved.</li>
             </ul>
         </div>

@@ -51,7 +51,9 @@ input {
 }
 
 #welcome {
-    opacity: 0.7;
+    font-family: "Roboto Slab";
+    opacity: 0.8;
+    color: var(--text_dark);
     text-align: center;
     transition: 0.3s;
 }
@@ -472,4 +474,23 @@ input {
     #fullReceipt .names {
         margin: 0.15em;
     }
+}
+
+.feedbackBar {
+    margin-left: auto;
+    margin-top: auto;
+    display: flex;
+}
+
+a.feedback {
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: 10px;
+    padding: 2em;
+    color: var(--text_dark);
+}
+
+a.feedback:hover {
+    font-weight: 600;
+    transform: perspective(40deg)
 }

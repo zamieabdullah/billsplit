@@ -58,6 +58,11 @@ ul {
     display: flex;
     justify-content: left;
 }
+.nostyle {
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+}
 
 .companyName {
     margin-left: 2rem;
