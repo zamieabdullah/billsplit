@@ -1,3 +1,4 @@
+
 .founders{
   background-color: var(--bg_accent_light);
   padding:50px;
@@ -17,12 +18,13 @@
 }
 
 .email{
-  width:40%;
+  width:80%;
   font-size: 18px;
   padding: 0.2em;
   background-color: #f0f0f0f0;
   border-radius: 0.5em;
-  border: 2px solid #1e1e78bf;
+  border-style: none;
+  box-shadow: 0 0 3px 1px #1e1e78bf;
 }
 
 .proContainer {
